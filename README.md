@@ -1,11 +1,11 @@
 # classifier_front_back
 README: Training and Deployment for Front/Back Image Classification
 
-1. Project Overview
+## Project Overview
 
 This project involves building a binary classification model to differentiate between "front" and "back" images. The solution is implemented using transfer learning with MobileNetV2, and the trained model is served using FastAPI. The process includes dataset preparation, training pipeline, model serving, and containerization using Docker.
 
-2. Training Process
+## Training Process
 
 2.1 Dataset Preparation
 
@@ -17,13 +17,13 @@ Images are resized to dimensions required by the model (224x224 for MobileNetV2)
 
 2.2 Training Pipeline
 
-Preprocessing:
+## Preprocessing:
 
 Images are normalized to the range [0, 1].
 
 Data augmentation (e.g., flipping, rotation) can be applied if necessary.
 
-Model Architecture:
+## Model Architecture:
 
 A pre-trained MobileNetV2 model (from ImageNet) is used as the feature extractor.
 
@@ -37,7 +37,7 @@ A sigmoid activation for binary classification.
 
 The base layers of MobileNetV2 are initially frozen.
 
-Training Steps:
+## Training Steps:
 
 Initial training is done with the pre-trained MobileNetV2 layers frozen.
 
@@ -59,9 +59,9 @@ Saving the Model:
 
 The trained model is saved as a .h5 file for deployment.
 
-3. Deployment Process
+# Deployment Process
 
-3.1 FastAPI Application
+## FastAPI Application
 
 The FastAPI app exposes a /predict/ endpoint to classify images from URLs.
 
@@ -91,7 +91,7 @@ Test the API using a tool like Postman or curl.
 
 curl -X POST "http://localhost:8000/predict/" -H "Content-Type: application/json" -d '{"url": "https://example.com/image.jpg"}'
 
-4. Exploring Other Methods
+## Exploring Other Methods
 
 While MobileNetV2 was chosen for its efficiency and simplicity, alternative approaches could also be considered for better performance:
 
@@ -150,7 +150,7 @@ Use Case:
 If the dataset is large and computational resources are sufficient.
 
 
-5. Requirements
+## Requirements
 
 Libraries in requirements.txt:
 
@@ -166,7 +166,7 @@ requests: To fetch images from URLs.
 
 scikit-learn, matplotlib, pandas: For training pipeline and visualization.
 
-6. Conclusion
+## Conclusion
 
 This project demonstrates how to build, train, and deploy an image classification model using MobileNetV2 and FastAPI. With enhancements like YOLO, Faster R-CNN, or Vision Transformers, the solution can be further optimized for more complex datasets. Containerization using Docker ensures easy deployment and scalability.
 
